@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3D9A86BB-2D68-3304-9BE5-2F88C68B382B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>srtsupport_virtual</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">srtsupport_virtual.dir\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">srtsupport_virtual.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">srtsupport_virtual</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">srtsupport_virtual.dir\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">srtsupport_virtual.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">srtsupport_virtual</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">srtsupport_virtual.dir\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">srtsupport_virtual.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">srtsupport_virtual</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">srtsupport_virtual.dir\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">srtsupport_virtual.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">srtsupport_virtual</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;ENABLE_LOGGING=1;SRT_ENABLE_APP_READER;SRT_ENABLE_CLOSE_SYNCH;HAVE_INET_PTON=1;HAVE_CXX_STD_PUT_TIME=1;ENABLE_STDCXX_SYNC=1;ENABLE_SOCK_CLOEXEC=1;WIN32=1;PTW32_STATIC_LIB=1;_GNU_SOURCE;HAI_PATCH=1;HAI_ENABLE_SRT=1;SRT_VERSION="1.5.3";CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;ENABLE_LOGGING=1;SRT_ENABLE_APP_READER;SRT_ENABLE_CLOSE_SYNCH;HAVE_INET_PTON=1;HAVE_CXX_STD_PUT_TIME=1;ENABLE_STDCXX_SYNC=1;ENABLE_SOCK_CLOEXEC=1;WIN32=1;PTW32_STATIC_LIB=1;_GNU_SOURCE;HAI_PATCH=1;HAI_ENABLE_SRT=1;SRT_VERSION=\"1.5.3\";CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;ENABLE_LOGGING=1;NDEBUG;SRT_ENABLE_APP_READER;SRT_ENABLE_CLOSE_SYNCH;HAVE_INET_PTON=1;HAVE_CXX_STD_PUT_TIME=1;ENABLE_STDCXX_SYNC=1;ENABLE_SOCK_CLOEXEC=1;WIN32=1;PTW32_STATIC_LIB=1;_GNU_SOURCE;HAI_PATCH=1;HAI_ENABLE_SRT=1;SRT_VERSION="1.5.3";CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;ENABLE_LOGGING=1;NDEBUG;SRT_ENABLE_APP_READER;SRT_ENABLE_CLOSE_SYNCH;HAVE_INET_PTON=1;HAVE_CXX_STD_PUT_TIME=1;ENABLE_STDCXX_SYNC=1;ENABLE_SOCK_CLOEXEC=1;WIN32=1;PTW32_STATIC_LIB=1;_GNU_SOURCE;HAI_PATCH=1;HAI_ENABLE_SRT=1;SRT_VERSION=\"1.5.3\";CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;ENABLE_LOGGING=1;NDEBUG;SRT_ENABLE_APP_READER;SRT_ENABLE_CLOSE_SYNCH;HAVE_INET_PTON=1;HAVE_CXX_STD_PUT_TIME=1;ENABLE_STDCXX_SYNC=1;ENABLE_SOCK_CLOEXEC=1;WIN32=1;PTW32_STATIC_LIB=1;_GNU_SOURCE;HAI_PATCH=1;HAI_ENABLE_SRT=1;SRT_VERSION="1.5.3";CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;ENABLE_LOGGING=1;NDEBUG;SRT_ENABLE_APP_READER;SRT_ENABLE_CLOSE_SYNCH;HAVE_INET_PTON=1;HAVE_CXX_STD_PUT_TIME=1;ENABLE_STDCXX_SYNC=1;ENABLE_SOCK_CLOEXEC=1;WIN32=1;PTW32_STATIC_LIB=1;_GNU_SOURCE;HAI_PATCH=1;HAI_ENABLE_SRT=1;SRT_VERSION=\"1.5.3\";CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;ENABLE_LOGGING=1;NDEBUG;SRT_ENABLE_APP_READER;SRT_ENABLE_CLOSE_SYNCH;HAVE_INET_PTON=1;HAVE_CXX_STD_PUT_TIME=1;ENABLE_STDCXX_SYNC=1;ENABLE_SOCK_CLOEXEC=1;WIN32=1;PTW32_STATIC_LIB=1;_GNU_SOURCE;HAI_PATCH=1;HAI_ENABLE_SRT=1;SRT_VERSION="1.5.3";CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;ENABLE_LOGGING=1;NDEBUG;SRT_ENABLE_APP_READER;SRT_ENABLE_CLOSE_SYNCH;HAVE_INET_PTON=1;HAVE_CXX_STD_PUT_TIME=1;ENABLE_STDCXX_SYNC=1;ENABLE_SOCK_CLOEXEC=1;WIN32=1;PTW32_STATIC_LIB=1;_GNU_SOURCE;HAI_PATCH=1;HAI_ENABLE_SRT=1;SRT_VERSION=\"1.5.3\";CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\haicrypt;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source -BD:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/build_win64 --check-stamp-file D:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/build_win64/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckCSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckFunctionExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckIncludeFile.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckLibraryExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckSymbolExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPkgConfig.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindThreads.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\GNUInstallDirs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\support.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeCCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeCXXCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeRCCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeSystem.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common\filelist_win32.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckCXXAtomic.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckCXXStdPutTime.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckGCCAtomicIntrinsics.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\FindPThreadGetSetName.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\haiUtil.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\srt.pc.in;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\test_vista.c;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\filelist.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source -BD:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/build_win64 --check-stamp-file D:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/build_win64/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckCSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckFunctionExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckIncludeFile.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckLibraryExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckSymbolExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPkgConfig.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindThreads.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\GNUInstallDirs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\support.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeCCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeCXXCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeRCCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeSystem.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common\filelist_win32.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckCXXAtomic.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckCXXStdPutTime.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckGCCAtomicIntrinsics.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\FindPThreadGetSetName.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\haiUtil.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\srt.pc.in;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\test_vista.c;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\filelist.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source -BD:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/build_win64 --check-stamp-file D:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/build_win64/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckCSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckFunctionExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckIncludeFile.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckLibraryExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckSymbolExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPkgConfig.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindThreads.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\GNUInstallDirs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\support.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeCCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeCXXCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeRCCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeSystem.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common\filelist_win32.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckCXXAtomic.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckCXXStdPutTime.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckGCCAtomicIntrinsics.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\FindPThreadGetSetName.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\haiUtil.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\srt.pc.in;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\test_vista.c;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\filelist.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source -BD:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/build_win64 --check-stamp-file D:/UE_Plugin_Develop/CineBroadcastProject/Plugins/CineSRTStream/Source/ThirdParty/SRT_Source/build_win64/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckCSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckFunctionExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckIncludeFile.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckLibraryExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CheckSymbolExists.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPkgConfig.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindThreads.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\GNUInstallDirs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\support.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeCCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeCXXCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeRCCompiler.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\3.31.6-msvc6\CMakeSystem.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common\filelist_win32.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckCXXAtomic.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckCXXStdPutTime.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\CheckGCCAtomicIntrinsics.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\FindPThreadGetSetName.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\haiUtil.cmake;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\srt.pc.in;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\scripts\test_vista.c;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\filelist.maf;D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\version.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\apputil.cpp" />
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\statswriter.cpp" />
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\logsupport.cpp" />
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\logsupport_appdefs.cpp" />
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\socketoptions.cpp" />
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\transmitmedia.cpp" />
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\uriparser.cpp" />
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\apps\verbose.cpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\ZERO_CHECK.vcxproj">
+      <Project>{85CC59B3-7DA8-36E3-8C40-CD2389FF90B2}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

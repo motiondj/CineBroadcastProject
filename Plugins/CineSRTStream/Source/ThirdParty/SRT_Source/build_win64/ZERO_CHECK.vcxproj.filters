@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\CMakeFiles\68e82c7ff8c61309fd66304ca6d27558\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1865CD94-7748-317E-8D85-F06151DD4250}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

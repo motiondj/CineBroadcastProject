@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\api.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\buffer_snd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\buffer_rcv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\buffer_tools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\cache.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\channel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\crypto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\epoll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\fec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\handshake.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\list.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\logger_default.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\logger_defs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\md5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\packet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\packetfilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\queue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\congctl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\socketconfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\srt_c_api.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\srt_compat.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\strerror_defs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\sync.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\tsbpd_time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\sync_cxx11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\common\win_time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\srt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\logging_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\access_control.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\platform_sys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\srtcore\udt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{16884125-0253-32E1-BEEA-E651B2324ABE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E2608823-1897-3EA2-BCF1-A1A7E35151D4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

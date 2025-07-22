@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\x64\Release\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\Release\srt-file-transmit.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\Release\srt-live-transmit.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\Release\srt-tunnel.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\UE_Plugin_Develop\CineBroadcastProject\Plugins\CineSRTStream\Source\ThirdParty\SRT_Source\build_win64\x64\Release\ALL_BUILD</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
