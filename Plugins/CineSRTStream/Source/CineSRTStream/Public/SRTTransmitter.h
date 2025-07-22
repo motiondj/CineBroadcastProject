@@ -57,6 +57,8 @@ public:
     FOnTransmissionError OnError;
 
 private:
+    static bool bSRTInitialized;
+    static FCriticalSection SRTInitLock;
     FTransmitterSettings Settings;
     bool bIsTransmitting = false;
     FThreadSafeBool bShouldStop = false;
@@ -70,6 +72,9 @@ private:
     // 전송 큐
     TArray<TArray<uint8>> TransmissionQueue;
     FCriticalSection QueueCriticalSection;
+    
+    // 스레드 관리
+    FRunnableThread* Thread = nullptr;
     
     // SRT 초기화
     bool InitializeSRT();

@@ -4,6 +4,9 @@
 #include "CineSRTStream.h"
 #include "HAL/RunnableThread.h"
 
+bool FSRTTransmitter::bSRTInitialized = false;
+FCriticalSection FSRTTransmitter::SRTInitLock;
+
 FSRTTransmitter::FSRTTransmitter(const FTransmitterSettings& InSettings)
     : Settings(InSettings)
 {
@@ -25,45 +28,29 @@ bool FSRTTransmitter::Init()
 
 uint32 FSRTTransmitter::Run()
 {
-    UE_LOG(LogCineSRT, Log, TEXT("SRT Transmitter thread started"));
-    
+    UE_LOG(LogCineSRT, Error, TEXT("==== TRANSMITTER THREAD STARTED ===="));
+    int WaitCount = 0;
     while (!bShouldStop)
     {
-        // 클라이언트 연결 대기
+        if (WaitCount++ % 5 == 0)
+        {
+            UE_LOG(LogCineSRT, Warning, TEXT("Thread alive - Waiting for connection on port %d"), Settings.Port);
+        }
+#if WITH_SRT
         if (ClientSocket == SRT_INVALID_SOCK)
         {
             if (!WaitForClient())
             {
-                FPlatformProcess::Sleep(0.1f); // 100ms 대기
+                FPlatformProcess::Sleep(1.0f);
                 continue;
             }
         }
-        
-        // 전송 큐에서 프레임 가져와서 전송
-        TArray<uint8> FrameData;
-        {
-            FScopeLock Lock(&QueueCriticalSection);
-            if (TransmissionQueue.Num() > 0)
-            {
-                FrameData = TransmissionQueue[0];
-                TransmissionQueue.RemoveAt(0);
-            }
-        }
-        
-        if (FrameData.Num() > 0)
-        {
-            if (SendFrameData(FrameData))
-            {
-                OnFrameTransmitted.ExecuteIfBound(FrameData);
-            }
-        }
-        else
-        {
-            FPlatformProcess::Sleep(0.001f); // 1ms 대기
-        }
+#else
+        UE_LOG(LogCineSRT, Warning, TEXT("Mock mode - no real SRT"));
+        FPlatformProcess::Sleep(1.0f);
+#endif
     }
-    
-    UE_LOG(LogCineSRT, Log, TEXT("SRT Transmitter thread stopped"));
+    UE_LOG(LogCineSRT, Error, TEXT("==== TRANSMITTER THREAD STOPPED ===="));
     return 0;
 }
 
@@ -80,27 +67,26 @@ void FSRTTransmitter::Exit()
 bool FSRTTransmitter::StartTransmission()
 {
     if (bIsTransmitting)
-    {
-        UE_LOG(LogCineSRT, Warning, TEXT("Transmission already active"));
         return false;
-    }
-    
-    if (!InitializeSRT())
-    {
-        UE_LOG(LogCineSRT, Error, TEXT("Failed to initialize SRT"));
-        return false;
-    }
-    
+    // InitializeSRT()는 ConfigureSocket에서만 호출
     if (!ConfigureSocket())
     {
         UE_LOG(LogCineSRT, Error, TEXT("Failed to configure socket"));
         return false;
     }
-    
     bIsTransmitting = true;
     bShouldStop = false;
-    
-    UE_LOG(LogCineSRT, Log, TEXT("Started SRT transmission on port %d"), Settings.Port);
+    if (!Thread)
+    {
+        UE_LOG(LogCineSRT, Warning, TEXT("Creating transmitter thread..."));
+        Thread = FRunnableThread::Create(this, TEXT("SRTTransmitterThread"));
+        if (!Thread)
+        {
+            UE_LOG(LogCineSRT, Error, TEXT("Failed to create thread"));
+            return false;
+        }
+        UE_LOG(LogCineSRT, Warning, TEXT("Thread created successfully"));
+    }
     return true;
 }
 
@@ -113,6 +99,14 @@ void FSRTTransmitter::StopTransmission()
     
     bIsTransmitting = false;
     bShouldStop = true;
+    
+    // 스레드 종료 대기 및 정리
+    if (Thread)
+    {
+        Thread->WaitForCompletion();
+        delete Thread;
+        Thread = nullptr;
+    }
     
     UE_LOG(LogCineSRT, Log, TEXT("Stopped SRT transmission"));
 }
@@ -137,9 +131,16 @@ void FSRTTransmitter::UpdateSettings(const FTransmitterSettings& NewSettings)
 
 bool FSRTTransmitter::InitializeSRT()
 {
+    FScopeLock Lock(&SRTInitLock);
+    if (bSRTInitialized)
+    {
+        UE_LOG(LogCineSRT, Log, TEXT("SRT already initialized"));
+        return true;
+    }
 #if WITH_SRT
     if (srt_startup() == 0)
     {
+        bSRTInitialized = true;
         UE_LOG(LogCineSRT, Log, TEXT("SRT library initialized"));
         return true;
     }
@@ -149,8 +150,9 @@ bool FSRTTransmitter::InitializeSRT()
         return false;
     }
 #else
-    UE_LOG(LogCineSRT, Error, TEXT("SRT library not available"));
-    return false;
+    bSRTInitialized = true;
+    UE_LOG(LogCineSRT, Warning, TEXT("SRT library not available - using mock"));
+    return true;
 #endif
 }
 
