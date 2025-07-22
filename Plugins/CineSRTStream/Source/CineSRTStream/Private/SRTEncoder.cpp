@@ -2,112 +2,196 @@
 
 #include "SRTEncoder.h"
 #include "CineSRTStream.h"
+#include "HAL/PlatformProcess.h"
+#include "IImageWrapper.h"
+#include "IImageWrapperModule.h"
+#include "Modules/ModuleManager.h"
 
 FSRTEncoder::FSRTEncoder(const FEncoderSettings& InSettings)
     : Settings(InSettings)
 {
+    FrameEvent = FPlatformProcess::GetSynchEventFromPool();
 }
 
 FSRTEncoder::~FSRTEncoder()
 {
-    bIsInitialized = false;
+    Shutdown();
+    FPlatformProcess::ReturnSynchEventToPool(FrameEvent);
 }
 
 bool FSRTEncoder::Initialize()
 {
-    UE_LOG(LogCineSRT, Log, TEXT("Initializing SRT Encoder - %dx%d, %d FPS, %d Kbps"), 
-        Settings.Width, Settings.Height, Settings.FPS, Settings.Bitrate);
-    
-    // 현재는 소프트웨어 인코더만 구현
-    // 하드웨어 인코더는 나중에 NVENC, AMF 등으로 확장 가능
-    bool bSuccess = InitializeSoftwareEncoder();
-    
-    if (bSuccess)
+    if (bIsInitialized)
+        return true;
+    ApplyQualitySettings();
+    Encoder = CreateEncoder();
+    if (!Encoder || !Encoder->Initialize())
     {
-        bIsInitialized = true;
-        UE_LOG(LogCineSRT, Log, TEXT("SRT Encoder initialized successfully"));
-    }
-    else
-    {
-        UE_LOG(LogCineSRT, Error, TEXT("Failed to initialize SRT Encoder"));
-    }
-    
-    return bSuccess;
-}
-
-bool FSRTEncoder::EncodeFrame(const TArray<uint8>& FrameData)
-{
-    if (!bIsInitialized)
-    {
-        UE_LOG(LogCineSRT, Warning, TEXT("Encoder not initialized"));
+        UE_LOG(LogCineSRT, Error, TEXT("Failed to create encoder"));
         return false;
     }
-    
-    // 현재는 간단한 패스스루 구현
-    // 실제로는 H.264/H.265 인코딩이 필요
-    return EncodeFrameSoftware(FrameData);
+    Thread = FRunnableThread::Create(this, TEXT("SRTEncoderThread"));
+    if (!Thread)
+    {
+        UE_LOG(LogCineSRT, Error, TEXT("Failed to create encoder thread"));
+        return false;
+    }
+    bIsInitialized = true;
+    UE_LOG(LogCineSRT, Log, TEXT("SRT Encoder initialized:"));
+    UE_LOG(LogCineSRT, Log, TEXT("  - Resolution: %dx%d"), Settings.Width, Settings.Height);
+    UE_LOG(LogCineSRT, Log, TEXT("  - FPS: %d"), Settings.FPS);
+    UE_LOG(LogCineSRT, Log, TEXT("  - Bitrate: %d Kbps"), Settings.Bitrate);
+    UE_LOG(LogCineSRT, Log, TEXT("  - Format: %d"), (int32)Settings.Format);
+    return true;
 }
 
-bool FSRTEncoder::GetEncodedData(TArray<uint8>& OutEncodedData)
+void FSRTEncoder::Shutdown()
 {
-    if (EncodedBuffer.Num() > 0)
+    if (!bIsInitialized) return;
+    bShouldStop = true;
+    FrameEvent->Trigger();
+    if (Thread)
     {
-        OutEncodedData = EncodedBuffer;
-        EncodedBuffer.Empty();
-        return true;
+        Thread->WaitForCompletion();
+        delete Thread;
+        Thread = nullptr;
     }
-    
-    return false;
+    if (Encoder)
+    {
+        Encoder->Shutdown();
+        Encoder.Reset();
+    }
+    bIsInitialized = false;
+}
+
+bool FSRTEncoder::SubmitFrame(const TArray<uint8>& FrameData)
+{
+    if (!bIsInitialized) return false;
+    FScopeLock Lock(&QueueMutex);
+    if (InputQueueSize > 5)
+    {
+        TArray<uint8> DroppedFrame;
+        InputQueue.Dequeue(DroppedFrame);
+        InputQueueSize--;
+        Stats.FramesDropped++;
+        UE_LOG(LogCineSRT, Warning, TEXT("Encoder queue full, dropping frame"));
+    }
+    InputQueue.Enqueue(FrameData);
+    InputQueueSize++;
+    FrameEvent->Trigger();
+    return true;
+}
+
+bool FSRTEncoder::GetEncodedFrame(TArray<uint8>& OutEncodedData)
+{
+    FScopeLock Lock(&QueueMutex);
+    return OutputQueue.Dequeue(OutEncodedData);
 }
 
 void FSRTEncoder::UpdateSettings(const FEncoderSettings& NewSettings)
 {
+    bool bNeedsRestart = (Settings.Width != NewSettings.Width ||
+                         Settings.Height != NewSettings.Height ||
+                         Settings.Format != NewSettings.Format);
     Settings = NewSettings;
-    
-    // 재초기화가 필요한 경우
-    if (bIsInitialized)
+    ApplyQualitySettings();
+    if (bNeedsRestart && bIsInitialized)
     {
-        bIsInitialized = false;
+        UE_LOG(LogCineSRT, Log, TEXT("Encoder settings changed, restarting..."));
+        Shutdown();
         Initialize();
     }
 }
 
-bool FSRTEncoder::InitializeSoftwareEncoder()
-{
-    // 현재는 간단한 구현
-    // 실제로는 x264, x265 등의 소프트웨어 인코더 연동 필요
-    UE_LOG(LogCineSRT, Log, TEXT("Initializing software encoder"));
-    return true;
-}
+bool FSRTEncoder::Init() { return true; }
 
-bool FSRTEncoder::InitializeHardwareEncoder()
+uint32 FSRTEncoder::Run()
 {
-    // 하드웨어 인코더 초기화 (NVENC, AMF, QuickSync)
-    UE_LOG(LogCineSRT, Log, TEXT("Hardware encoder not implemented yet"));
-    return false;
-}
-
-bool FSRTEncoder::EncodeFrameSoftware(const TArray<uint8>& FrameData)
-{
-    // 현재는 간단한 패스스루
-    // 실제로는 H.264/H.265 인코딩 구현 필요
-    EncodedBuffer = FrameData;
-    
-    static int32 FrameCount = 0;
-    FrameCount++;
-    
-    if (FrameCount % 30 == 0) // 30프레임마다 로그
+    while (!bShouldStop)
     {
-        UE_LOG(LogCineSRT, Verbose, TEXT("Software encoded frame %d, size: %d bytes"), 
-            FrameCount, FrameData.Num());
+        FrameEvent->Wait();
+        TArray<uint8> InputFrame;
+        while (InputQueue.Dequeue(InputFrame))
+        {
+            InputQueueSize--;
+            if (bShouldStop) break;
+            double StartTime = FPlatformTime::Seconds();
+            TArray<uint8> EncodedFrame;
+            if (Encoder && Encoder->EncodeFrame(InputFrame, EncodedFrame))
+            {
+                FScopeLock Lock(&QueueMutex);
+                OutputQueue.Enqueue(MoveTemp(EncodedFrame));
+                Stats.FramesEncoded++;
+                Stats.TotalBytesEncoded += EncodedFrame.Num();
+                double EncodeTime = FPlatformTime::Seconds() - StartTime;
+                Stats.AverageEncodeTime = (Stats.AverageEncodeTime * (Stats.FramesEncoded - 1) + EncodeTime) / Stats.FramesEncoded;
+            }
+        }
     }
-    
+    return 0;
+}
+
+void FSRTEncoder::Stop() { bShouldStop = true; }
+
+TUniquePtr<IVideoEncoder> FSRTEncoder::CreateEncoder()
+{
+    switch (Settings.Format)
+    {
+        case EEncodingFormat::MJPEG:
+            return MakeUnique<FMJPEGEncoder>(Settings);
+        case EEncodingFormat::H264:
+            UE_LOG(LogCineSRT, Warning, TEXT("H264 encoder not implemented, falling back to MJPEG"));
+            Settings.Format = EEncodingFormat::MJPEG;
+            return MakeUnique<FMJPEGEncoder>(Settings);
+        default:
+            return nullptr;
+    }
+}
+
+void FSRTEncoder::ApplyQualitySettings()
+{
+    switch (Settings.StreamQuality)
+    {
+        case ESRTStreamQuality::Preview_480p:
+            Settings.Width = 854; Settings.Height = 480; Settings.FPS = 15; Settings.Bitrate = 1500; Settings.JpegQuality = 70; break;
+        case ESRTStreamQuality::HD_720p:
+            Settings.Width = 1280; Settings.Height = 720; Settings.FPS = 30; Settings.Bitrate = 4000; Settings.JpegQuality = 80; break;
+        case ESRTStreamQuality::HD_1080p:
+            Settings.Width = 1920; Settings.Height = 1080; Settings.FPS = 30; Settings.Bitrate = 8000; Settings.JpegQuality = 85; break;
+        case ESRTStreamQuality::HD_1080p60:
+            Settings.Width = 1920; Settings.Height = 1080; Settings.FPS = 60; Settings.Bitrate = 12000; Settings.JpegQuality = 85; break;
+        case ESRTStreamQuality::UHD_4K:
+            Settings.Width = 3840; Settings.Height = 2160; Settings.FPS = 30; Settings.Bitrate = 25000; Settings.JpegQuality = 90; break;
+        case ESRTStreamQuality::Custom:
+            break;
+    }
+}
+
+// --- MJPEG 인코더 구현 ---
+FMJPEGEncoder::FMJPEGEncoder(const FSRTEncoder::FEncoderSettings& InSettings)
+    : Settings(InSettings)
+{
+}
+
+bool FMJPEGEncoder::Initialize()
+{
     return true;
 }
 
-bool FSRTEncoder::EncodeFrameHardware(const TArray<uint8>& FrameData)
+bool FMJPEGEncoder::EncodeFrame(const TArray<uint8>& RawData, TArray<uint8>& OutEncodedData)
 {
-    // 하드웨어 인코딩 구현 (나중에 추가)
-    UE_LOG(LogCineSRT, Log, TEXT("Hardware encoding not implemented yet"));
-    return false;
-} 
+    IImageWrapperModule& ImageWrapperModule = FModuleManager::LoadModuleChecked<IImageWrapperModule>(TEXT("ImageWrapper"));
+    TSharedPtr<IImageWrapper> ImageWrapper = ImageWrapperModule.CreateImageWrapper(EImageFormat::JPEG);
+    if (!ImageWrapper.IsValid()) return false;
+    if (!ImageWrapper->SetRaw(RawData.GetData(), RawData.Num(), Settings.Width, Settings.Height, ERGBFormat::BGRA, 8)) return false;
+    OutEncodedData = ImageWrapper->GetCompressed(Settings.JpegQuality);
+    return OutEncodedData.Num() > 0;
+}
+
+void FMJPEGEncoder::Shutdown() {}
+
+// --- H264 인코더 스텁 ---
+FH264Encoder::FH264Encoder(const FSRTEncoder::FEncoderSettings& InSettings) : Settings(InSettings) {}
+bool FH264Encoder::Initialize() { return false; }
+bool FH264Encoder::EncodeFrame(const TArray<uint8>&, TArray<uint8>&) { return false; }
+void FH264Encoder::Shutdown() {} 

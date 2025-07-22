@@ -85,6 +85,11 @@ void USRTStreamComponent::TickComponent(float DeltaTime, ELevelTick TickType,
     FActorComponentTickFunction* ThisTickFunction)
 {
     Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+    static int TickCount = 0;
+    if (TickCount++ % 30 == 0)
+    {
+        UE_LOG(LogCineSRT, Warning, TEXT("Tick running, streaming: %s"), bIsStreaming ? TEXT("YES") : TEXT("NO"));
+    }
     
     if (!bIsStreaming || !SceneCaptureComponent)
     {
@@ -341,8 +346,10 @@ FString USRTStreamComponent::GetStreamURL() const
 
 void USRTStreamComponent::CaptureFrame()
 {
+    UE_LOG(LogCineSRT, Warning, TEXT("=== CaptureFrame called ==="));
     if (!SceneCaptureComponent || !RenderTarget)
     {
+        UE_LOG(LogCineSRT, Error, TEXT("No capture components!"));
         return;
     }
     
@@ -353,16 +360,20 @@ void USRTStreamComponent::CaptureFrame()
     TArray<uint8> FrameData;
     if (GetFrameDataFromRenderTarget(FrameData))
     {
+        UE_LOG(LogCineSRT, Warning, TEXT("Frame captured: %d bytes"), FrameData.Num());
         // Encode frame
-        if (Encoder && Encoder->EncodeFrame(FrameData))
+        if (Encoder && Encoder->SubmitFrame(FrameData))
         {
+            UE_LOG(LogCineSRT, Warning, TEXT("Frame submitted to encoder"));
             TArray<uint8> EncodedData;
-            if (Encoder->GetEncodedData(EncodedData))
+            if (Encoder->GetEncodedFrame(EncodedData))
             {
+                UE_LOG(LogCineSRT, Warning, TEXT("Encoded data: %d bytes"), EncodedData.Num());
                 // Transmit encoded frame
                 if (Transmitter)
                 {
                     Transmitter->TransmitFrame(EncodedData);
+                    UE_LOG(LogCineSRT, Warning, TEXT("Frame transmitted"));
                 }
             }
         }

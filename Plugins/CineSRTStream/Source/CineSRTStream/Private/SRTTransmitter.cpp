@@ -28,29 +28,67 @@ bool FSRTTransmitter::Init()
 
 uint32 FSRTTransmitter::Run()
 {
-    UE_LOG(LogCineSRT, Error, TEXT("==== TRANSMITTER THREAD STARTED ===="));
-    int WaitCount = 0;
-    while (!bShouldStop)
+    UE_LOG(LogCineSRT, Log, TEXT("Transmitter thread started"));
+
+    int ConnectionAttempts = 0;
+    const int MaxAttempts = 10; // 10번만 시도
+    FDateTime LastLogTime = FDateTime::Now();
+
+    while (!bShouldStop && ConnectionAttempts < MaxAttempts)
     {
-        if (WaitCount++ % 5 == 0)
-        {
-            UE_LOG(LogCineSRT, Warning, TEXT("Thread alive - Waiting for connection on port %d"), Settings.Port);
-        }
-#if WITH_SRT
         if (ClientSocket == SRT_INVALID_SOCK)
         {
+            ConnectionAttempts++;
+
+            // 5초에 한 번만 로그
+            if ((FDateTime::Now() - LastLogTime).GetTotalSeconds() > 5.0)
+            {
+                UE_LOG(LogCineSRT, Log, TEXT("Waiting for connection on port %d (attempt %d/%d)"), Settings.Port, ConnectionAttempts, MaxAttempts);
+                LastLogTime = FDateTime::Now();
+            }
+
             if (!WaitForClient())
             {
                 FPlatformProcess::Sleep(1.0f);
                 continue;
             }
+
+            // 연결 성공
+            UE_LOG(LogCineSRT, Log, TEXT("Client connected!"));
+            ConnectionAttempts = 0; // 리셋
         }
-#else
-        UE_LOG(LogCineSRT, Warning, TEXT("Mock mode - no real SRT"));
-        FPlatformProcess::Sleep(1.0f);
-#endif
+
+        // TransmissionQueue 처리 및 전송 로그 추가
+        while (!bShouldStop && ClientSocket != SRT_INVALID_SOCK)
+        {
+            TArray<uint8> FrameData;
+            {
+                FScopeLock Lock(&QueueCriticalSection);
+                if (TransmissionQueue.Num() == 0)
+                {
+                    break;
+                }
+                FrameData = TransmissionQueue[0];
+                TransmissionQueue.RemoveAt(0);
+            }
+            UE_LOG(LogCineSRT, Warning, TEXT("Sending frame: %d bytes"), FrameData.Num());
+            int sent = srt_send(ClientSocket, (char*)FrameData.GetData(), FrameData.Num());
+            if (sent == SRT_ERROR)
+            {
+                UE_LOG(LogCineSRT, Error, TEXT("Send failed"));
+                break;
+            }
+            else
+            {
+                UE_LOG(LogCineSRT, Warning, TEXT("Sent %d bytes successfully"), sent);
+            }
+            FPlatformProcess::Sleep(0.001f);
+        }
+
+        FPlatformProcess::Sleep(0.033f); // 약 30 FPS
     }
-    UE_LOG(LogCineSRT, Error, TEXT("==== TRANSMITTER THREAD STOPPED ===="));
+
+    UE_LOG(LogCineSRT, Log, TEXT("Transmitter thread stopped"));
     return 0;
 }
 
@@ -68,24 +106,36 @@ bool FSRTTransmitter::StartTransmission()
 {
     if (bIsTransmitting)
         return false;
-    // InitializeSRT()는 ConfigureSocket에서만 호출
-    if (!ConfigureSocket())
+
+    // 1. SRT 라이브러리 초기화 (반드시 제일 먼저!)
+    UE_LOG(LogCineSRT, Log, TEXT("[SRT] Initializing SRT library..."));
+    if (!InitializeSRT())
     {
-        UE_LOG(LogCineSRT, Error, TEXT("Failed to configure socket"));
+        UE_LOG(LogCineSRT, Error, TEXT("[SRT] Failed to initialize SRT library"));
         return false;
     }
+
+    // 2. 소켓 설정
+    UE_LOG(LogCineSRT, Log, TEXT("[SRT] Configuring SRT socket..."));
+    if (!ConfigureSocket())
+    {
+        UE_LOG(LogCineSRT, Error, TEXT("[SRT] Failed to configure socket"));
+        return false;
+    }
+
+    // 3. 스레드 생성
     bIsTransmitting = true;
     bShouldStop = false;
     if (!Thread)
     {
-        UE_LOG(LogCineSRT, Warning, TEXT("Creating transmitter thread..."));
+        UE_LOG(LogCineSRT, Warning, TEXT("[SRT] Creating transmitter thread..."));
         Thread = FRunnableThread::Create(this, TEXT("SRTTransmitterThread"));
         if (!Thread)
         {
-            UE_LOG(LogCineSRT, Error, TEXT("Failed to create thread"));
+            UE_LOG(LogCineSRT, Error, TEXT("[SRT] Failed to create thread"));
             return false;
         }
-        UE_LOG(LogCineSRT, Warning, TEXT("Thread created successfully"));
+        UE_LOG(LogCineSRT, Warning, TEXT("[SRT] Thread created successfully"));
     }
     return true;
 }
